@@ -1,0 +1,16 @@
+[Unit]
+Description=Gotham DPGC IoT Gateway (Mosquitto <-> InfluxDB <-> Adafruit IO)
+After=network-online.target mosquitto.service influxdb.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=viniciusbduarte
+WorkingDirectory=/home/viniciusbduarte/gotham-gateway
+EnvironmentFile=-/home/viniciusbduarte/gotham-gateway/.env
+ExecStart=/usr/bin/python3 /home/viniciusbduarte/gotham-gateway/gotham_gateway.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

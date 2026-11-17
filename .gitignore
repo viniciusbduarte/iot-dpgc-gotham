@@ -1,0 +1,27 @@
+# Variáveis de ambiente e segredos
+.env
+*.env
+!.env.example
+
+# Artefatos de build e componentes gerenciados do ESP-IDF
+**/build/
+**/managed_components/
+**/sdkconfig.old
+
+# Configurações locais de IDE / Editor
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# Arquivos temporários e binários
+*.bin
+*.elf
+*.map
+*.log
+.DS_Store

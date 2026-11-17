@@ -1,0 +1,20 @@
+#include "esp_event.h"
+#include "esp_netif.h"
+#include "mqtt_subscriber.h"
+#include "nvs_flash.h"
+#include "protocol_examples_common.h"
+
+/**
+ * @brief Ponto de entrada do Node B.
+ *
+ * Inicializa a rede e inicia o assinante MQTT que controla o Bat-Sinal.
+ */
+void app_main(void)
+{
+    ESP_ERROR_CHECK(nvs_flash_init());
+    ESP_ERROR_CHECK(esp_netif_init());
+    ESP_ERROR_CHECK(esp_event_loop_create_default());
+    ESP_ERROR_CHECK(example_connect());
+
+    mqtt_subscriber_start();
+}
